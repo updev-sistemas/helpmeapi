@@ -19,6 +19,8 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth:api', \App\Http\Middlew
     Route::post('project','ProjectController@store')->name('project.store'); // Save
     Route::put('project/{id}','ProjectController@update')->name('project.update'); // Update
 
+    Route::get('tasks', 'TaskController@index')->name('task.list');
+    Route::get('tasks/{id}', 'TaskController@show')->name('task.show');
 
     Route::any("/", function(){
         return response()->json([
